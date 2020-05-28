@@ -1,0 +1,18 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.pexels.com/photo/cocktail-drink-food-frozen-margarita-1590151/);">
+  <div class="container">
+    <h1>🍸🍹 Choose the cocktail you fancy 🍹🍸</h1>
+  </div>
+</div>
+
+
+
+<% @cocktails.each do |cocktail| %>
+  <div class="card">
+  	<p><%= link_to cocktail.name, cocktail_path(cocktail.id) %></p>
+  </div>
+<% end %>
+
+<%= simple_form_for(@cocktail) do |f| %>
+  <%= f.input :name %>
+ <%= f.submit "Submit", class: "btn btn-outline-primary" %>
+<% end %>
